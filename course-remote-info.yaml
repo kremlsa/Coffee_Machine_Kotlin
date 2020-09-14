@@ -106,6 +106,8 @@ topics:
   - title: Properties accessors
     theory_id: 10511
   - title: Object declarations
-    theory_id: 9364
+    theory_id: 10698
+  - title: Companion object
+    theory_id: 10707
   - title: Enum
     theory_id: 6245

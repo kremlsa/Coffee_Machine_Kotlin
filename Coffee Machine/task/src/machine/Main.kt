@@ -1,11 +1,21 @@
 package machine
 
+import java.util.*
+
+val scanner = Scanner(System.`in`)
+var isRun = true
+
 fun main() {
-    println("Starting to make a coffee\n" +
-            "Grinding coffee beans\n" +
-            "Boiling water\n" +
-            "Mixing boiled water with crushed coffee beans\n" +
-            "Pouring coffee into the cup\n" +
-            "Pouring some milk into the cup\n" +
-            "Coffee is ready!")
+    val coffemachine = CoffeeMachine()
+    while(isRun) {
+        when (coffemachine.state) {
+            "standby" -> coffemachine.showMenu()
+            "buy" -> coffemachine.showBuyMenu()
+            "fill" -> coffemachine.showFillMenu()
+        }
+        val input = scanner.nextLine()
+        isRun = coffemachine.operate(input)
+        if(coffemachine.fillState != "fillmilk" && coffemachine.fillState != "fillbeans" && coffemachine.fillState != "fillcups")
+            println()
+    }
 }
